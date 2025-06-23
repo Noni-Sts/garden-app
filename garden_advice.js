@@ -33,10 +33,9 @@ function getPlantType() {
 
 let plantType = getPlantType();
 
-// Variable to hold gardening advice
-let advice = "";
+/*let advice = "";
 
-// Determine advice based on the season
+// Determine advice based on the season - based on user input
 if (season === "summer") {
   advice += "Water your plants regularly and provide some shade.\n";
 } else if (season === "winter") {
@@ -45,16 +44,42 @@ if (season === "summer") {
   advice += "No advice for this season.\n";
 }
 
-// Determine advice based on the plant type
+// Determine advice based on the plant type - based on user input
 if (plantType === "flower") {
   advice += "Use fertiliser to encourage blooms.";
 } else if (plantType === "vegetable") {
   advice += "Keep an eye out for pests!";
 } else {
   advice += "No advice for this type of plant.";
+}*/
+
+// Refactored into a reusable advice function:
+function getAdvice(season, plantType) {
+  let advice = "";
+
+  // Season advice
+  if (season === "summer") {
+    advice += "Water your plants regularly and provide some shade.\n";
+  } else if (season === "winter") {
+    advice += "Protect your plants from frost with covers.\n";
+  } else {
+    advice += "No advice for this season.\n";
+  }
+
+  // Plant type advice
+  if (plantType === "flower") {
+    advice += "Use fertiliser to encourage blooms.";
+  } else if (plantType === "vegetable") {
+    advice += "Keep an eye out for pests!";
+  } else {
+    advice += "No advice for this type of plant.";
+  }
+
+  return advice;
 }
 
-// Log the generated advice to the console
+// Calls and logs the final gardening advice to the user
+let advice = getAdvice(season, plantType);
 console.log(advice);
 
 // TODO: Examples of possible features to add:
